@@ -1,0 +1,145 @@
+2026-03-26 17:09:11,004 | INFO | __main__ | 🚀 Бот запускается...
+2026-03-26 17:09:11,004 | INFO | apscheduler.scheduler | Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-03-26 17:09:11,004 | INFO | apscheduler.scheduler | Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-03-26 17:09:11,004 | INFO | apscheduler.scheduler | Added job "auto_post" to job store "default"
+2026-03-26 17:09:11,004 | INFO | apscheduler.scheduler | Added job "find_new_rss_sources" to job store "default"
+2026-03-26 17:09:11,004 | INFO | apscheduler.scheduler | Scheduler started
+2026-03-26 17:09:11,004 | INFO | __main__ | ✅ Scheduler запущен
+2026-03-26 17:09:11,004 | INFO | aiogram.dispatcher | Start polling
+2026-03-26 17:09:11,368 | INFO | aiogram.dispatcher | Run polling for bot @AutomobileTelegramBot id=8766508879 - 'Automobile_Telegram_Bot'
+2026-03-26 17:09:21,010 | INFO | apscheduler.executors.default | Running job "auto_post (trigger: interval[0:00:10], next run at: 2026-03-26 17:09:31 +04)" (scheduled at 2026-03-26 17:09:21.004765+04:00)
+2026-03-26 17:09:21,010 | INFO | scheduler | ⏰ Запуск авто-поста
+2026-03-26 17:09:21,010 | WARNING | storage | ⚠️ Кеш пуст
+2026-03-26 17:09:21,010 | INFO | scheduler | ❌ Нет постов — генерирую новую пачку
+2026-03-26 17:09:21,010 | INFO | news_parser | 📡 Парсим: https://www.motor1.com/rss/news/
+2026-03-26 17:09:21,766 | INFO | news_parser | 📡 Парсим: https://insideevs.com/rss/news/
+2026-03-26 17:09:22,499 | INFO | news_parser | 📡 Парсим: https://www.autocar.co.uk/rss
+2026-03-26 17:09:23,116 | INFO | news_parser | 📡 Парсим: https://feeds.feedburner.com/autonews/RSS
+2026-03-26 17:09:23,517 | INFO | news_parser | 📰 Найдено новостей: 5
+2026-03-26 17:09:23,517 | INFO | news_parser | 🔥 Трендовых новостей: 3
+2026-03-26 17:09:29,227 | INFO | httpx | HTTP Request: POST https://api.aitunnel.ru/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-26 17:09:31,009 | WARNING | apscheduler.scheduler | Execution of job "auto_post (trigger: interval[0:00:10], next run at: 2026-03-26 17:09:31 +04)" skipped: maximum number of running instances reached (1)
+2026-03-26 17:09:34,842 | INFO | httpx | HTTP Request: POST https://api.aitunnel.ru/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-26 17:09:39,555 | INFO | httpx | HTTP Request: POST https://api.aitunnel.ru/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-26 17:09:39,561 | INFO | storage | 📦 Добавляю 3 постов в кеш
+2026-03-26 17:09:39,706 | INFO | storage | 📤 Беру пост из кеша
+2026-03-26 17:09:40,604 | INFO | poster | 📢 Пост отправлен
+2026-03-26 17:09:40,604 | INFO | scheduler | ✅ Пост опубликован
+2026-03-26 17:09:40,605 | INFO | apscheduler.executors.default | Job "auto_post (trigger: interval[0:00:10], next run at: 2026-03-26 17:09:41 +04)" executed successfully
+2026-03-26 17:09:41,018 | INFO | apscheduler.executors.default | Running job "auto_post (trigger: interval[0:00:10], next run at: 2026-03-26 17:09:51 +04)" (scheduled at 2026-03-26 17:09:41.004765+04:00)
+2026-03-26 17:09:41,019 | INFO | scheduler | ⏰ Запуск авто-поста
+2026-03-26 17:09:41,046 | INFO | storage | 📤 Беру пост из кеша
+2026-03-26 17:09:41,716 | INFO | poster | 📢 Пост отправлен
+2026-03-26 17:09:41,717 | INFO | scheduler | ✅ Пост опубликован
+2026-03-26 17:09:41,721 | INFO | apscheduler.executors.default | Job "auto_post (trigger: interval[0:00:10], next run at: 2026-03-26 17:09:51 +04)" executed successfully
+2026-03-26 17:09:51,017 | INFO | apscheduler.executors.default | Running job "auto_post (trigger: interval[0:00:10], next run at: 2026-03-26 17:10:01 +04)" (scheduled at 2026-03-26 17:09:51.004765+04:00)
+2026-03-26 17:09:51,018 | INFO | scheduler | ⏰ Запуск авто-поста
+2026-03-26 17:09:51,049 | INFO | storage | 📤 Беру пост из кеша
+2026-03-26 17:09:52,462 | INFO | poster | 📢 Пост отправлен
+2026-03-26 17:09:52,463 | INFO | scheduler | ✅ Пост опубликован
+2026-03-26 17:09:52,465 | INFO | apscheduler.executors.default | Job "auto_post (trigger: interval[0:00:10], next run at: 2026-03-26 17:10:01 +04)" executed successfully
+2026-03-26 17:10:01,015 | INFO | apscheduler.executors.default | Running job "auto_post (trigger: interval[0:00:10], next run at: 2026-03-26 17:10:11 +04)" (scheduled at 2026-03-26 17:10:01.004765+04:00)
+2026-03-26 17:10:01,016 | INFO | scheduler | ⏰ Запуск авто-поста
+2026-03-26 17:10:01,019 | WARNING | storage | ⚠️ Кеш пуст
+2026-03-26 17:10:01,020 | INFO | scheduler | ❌ Нет постов — генерирую новую пачку
+2026-03-26 17:10:01,024 | INFO | news_parser | 📡 Парсим: https://www.motor1.com/rss/news/
+2026-03-26 17:10:01,995 | INFO | news_parser | 📡 Парсим: https://insideevs.com/rss/news/
+2026-03-26 17:10:02,920 | INFO | news_parser | 📡 Парсим: https://www.autocar.co.uk/rss
+2026-03-26 17:10:03,387 | INFO | news_parser | 📡 Парсим: https://feeds.feedburner.com/autonews/RSS
+2026-03-26 17:10:03,718 | INFO | news_parser | 📰 Найдено новостей: 0
+2026-03-26 17:10:03,719 | INFO | news_parser | 🔥 Трендовых новостей: 0
+2026-03-26 17:10:03,720 | WARNING | scheduler | ⚠️ AI не дал посты — fallback
+2026-03-26 17:10:03,721 | INFO | storage | 📦 Добавляю 3 постов в кеш
+2026-03-26 17:10:03,743 | INFO | storage | 📤 Беру пост из кеша
+2026-03-26 17:10:03,879 | INFO | poster | 📢 Пост отправлен
+2026-03-26 17:10:03,880 | INFO | scheduler | ✅ Пост опубликован
+2026-03-26 17:10:03,882 | INFO | apscheduler.executors.default | Job "auto_post (trigger: interval[0:00:10], next run at: 2026-03-26 17:10:11 +04)" executed successfully
+2026-03-26 17:10:11,017 | INFO | apscheduler.executors.default | Running job "auto_post (trigger: interval[0:00:10], next run at: 2026-03-26 17:10:21 +04)" (scheduled at 2026-03-26 17:10:11.004765+04:00)
+2026-03-26 17:10:11,019 | INFO | scheduler | ⏰ Запуск авто-поста
+2026-03-26 17:10:11,039 | INFO | storage | 📤 Беру пост из кеша
+2026-03-26 17:10:11,168 | INFO | poster | 📢 Пост отправлен
+2026-03-26 17:10:11,169 | INFO | scheduler | ✅ Пост опубликован
+2026-03-26 17:10:11,169 | INFO | apscheduler.executors.default | Job "auto_post (trigger: interval[0:00:10], next run at: 2026-03-26 17:10:21 +04)" executed successfully
+2026-03-26 17:10:12,083 | INFO | aiogram.event | Update id=474874142 is not handled. Duration 0 ms by bot id=8766508879
+2026-03-26 17:10:21,015 | INFO | apscheduler.executors.default | Running job "auto_post (trigger: interval[0:00:10], next run at: 2026-03-26 17:10:31 +04)" (scheduled at 2026-03-26 17:10:21.004765+04:00)
+2026-03-26 17:10:21,015 | INFO | scheduler | ⏰ Запуск авто-поста
+2026-03-26 17:10:21,045 | INFO | storage | 📤 Беру пост из кеша
+2026-03-26 17:10:21,333 | INFO | poster | 📢 Пост отправлен
+2026-03-26 17:10:21,333 | INFO | scheduler | ✅ Пост опубликован
+2026-03-26 17:10:21,333 | INFO | apscheduler.executors.default | Job "auto_post (trigger: interval[0:00:10], next run at: 2026-03-26 17:10:31 +04)" executed successfully
+2026-03-26 17:10:22,564 | INFO | aiogram.dispatcher | Polling stopped
+2026-03-26 17:10:22,832 | INFO | aiogram.dispatcher | Polling stopped for bot @AutomobileTelegramBot id=8766508879 - 'Automobile_Telegram_Bot'
+2026-03-26 17:11:23,453 | INFO | __main__ | 🚀 Бот запускается...
+2026-03-26 17:11:23,453 | INFO | apscheduler.scheduler | Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-03-26 17:11:23,453 | INFO | apscheduler.scheduler | Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-03-26 17:11:23,453 | INFO | apscheduler.scheduler | Added job "auto_post" to job store "default"
+2026-03-26 17:11:23,453 | INFO | apscheduler.scheduler | Added job "find_new_rss_sources" to job store "default"
+2026-03-26 17:11:23,453 | INFO | apscheduler.scheduler | Scheduler started
+2026-03-26 17:11:23,453 | INFO | __main__ | ✅ Scheduler запущен
+2026-03-26 17:11:23,453 | INFO | aiogram.dispatcher | Start polling
+2026-03-26 17:11:23,814 | INFO | aiogram.dispatcher | Run polling for bot @AutomobileTelegramBot id=8766508879 - 'Automobile_Telegram_Bot'
+2026-03-26 17:11:42,458 | INFO | aiogram.event | Update id=474874143 is handled. Duration 391 ms by bot id=8766508879
+2026-03-26 17:19:40,142 | INFO | aiogram.dispatcher | Polling stopped
+2026-03-26 17:19:40,407 | INFO | aiogram.dispatcher | Polling stopped for bot @AutomobileTelegramBot id=8766508879 - 'Automobile_Telegram_Bot'
+2026-03-26 17:20:03,089 | INFO | __main__ | 🚀 Бот запускается...
+2026-03-26 17:20:03,090 | INFO | apscheduler.scheduler | Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-03-26 17:20:03,090 | INFO | apscheduler.scheduler | Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-03-26 17:20:03,095 | INFO | apscheduler.scheduler | Added job "auto_post" to job store "default"
+2026-03-26 17:20:03,096 | INFO | apscheduler.scheduler | Added job "find_new_rss_sources" to job store "default"
+2026-03-26 17:20:03,096 | INFO | apscheduler.scheduler | Scheduler started
+2026-03-26 17:20:03,097 | INFO | __main__ | ✅ Scheduler запущен
+2026-03-26 17:20:03,097 | INFO | aiogram.dispatcher | Start polling
+2026-03-26 17:20:03,449 | INFO | aiogram.dispatcher | Run polling for bot @AutomobileTelegramBot id=8766508879 - 'Automobile_Telegram_Bot'
+2026-03-26 17:22:13,538 | INFO | aiogram.dispatcher | Polling stopped
+2026-03-26 17:22:13,790 | INFO | aiogram.dispatcher | Polling stopped for bot @AutomobileTelegramBot id=8766508879 - 'Automobile_Telegram_Bot'
+2026-03-26 17:22:24,910 | INFO | __main__ | 🚀 Бот запускается...
+2026-03-26 17:22:24,910 | INFO | apscheduler.scheduler | Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-03-26 17:22:24,910 | INFO | apscheduler.scheduler | Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-03-26 17:22:24,910 | INFO | apscheduler.scheduler | Added job "auto_post" to job store "default"
+2026-03-26 17:22:24,910 | INFO | apscheduler.scheduler | Added job "find_new_rss_sources" to job store "default"
+2026-03-26 17:22:24,910 | INFO | apscheduler.scheduler | Scheduler started
+2026-03-26 17:22:24,910 | INFO | __main__ | ✅ Scheduler запущен
+2026-03-26 17:22:24,910 | INFO | aiogram.dispatcher | Start polling
+2026-03-26 17:22:25,256 | INFO | aiogram.dispatcher | Run polling for bot @AutomobileTelegramBot id=8766508879 - 'Automobile_Telegram_Bot'
+2026-03-26 17:22:54,913 | INFO | apscheduler.executors.default | Running job "auto_post (trigger: interval[0:00:30], next run at: 2026-03-26 17:23:24 +04)" (scheduled at 2026-03-26 17:22:54.910989+04:00)
+2026-03-26 17:22:54,913 | INFO | scheduler | ⏰ Запуск авто-поста
+2026-03-26 17:22:54,913 | WARNING | storage | ⚠️ Кеш пуст
+2026-03-26 17:22:54,913 | INFO | scheduler | ❌ Нет постов — генерирую новую пачку
+2026-03-26 17:22:54,913 | INFO | news_parser | 📡 Парсим: https://www.motor1.com/rss/news/
+2026-03-26 17:22:55,799 | INFO | news_parser | 📡 Парсим: https://insideevs.com/rss/news/
+2026-03-26 17:22:56,627 | INFO | news_parser | 📡 Парсим: https://www.autocar.co.uk/rss
+2026-03-26 17:22:57,288 | INFO | news_parser | 📡 Парсим: https://feeds.feedburner.com/autonews/RSS
+2026-03-26 17:22:57,672 | INFO | news_parser | 📰 Найдено новостей: 10
+2026-03-26 17:22:57,672 | INFO | news_parser | 🔥 Трендовых новостей: 7
+2026-03-26 17:23:03,083 | INFO | httpx | HTTP Request: POST https://api.aitunnel.ru/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-26 17:23:06,561 | INFO | httpx | HTTP Request: POST https://api.aitunnel.ru/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-26 17:23:10,788 | INFO | httpx | HTTP Request: POST https://api.aitunnel.ru/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-26 17:23:15,841 | INFO | httpx | HTTP Request: POST https://api.aitunnel.ru/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-26 17:23:20,235 | INFO | httpx | HTTP Request: POST https://api.aitunnel.ru/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-26 17:23:24,917 | WARNING | apscheduler.scheduler | Execution of job "auto_post (trigger: interval[0:00:30], next run at: 2026-03-26 17:23:24 +04)" skipped: maximum number of running instances reached (1)
+2026-03-26 17:23:25,376 | INFO | httpx | HTTP Request: POST https://api.aitunnel.ru/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-26 17:23:29,578 | INFO | httpx | HTTP Request: POST https://api.aitunnel.ru/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-26 17:23:29,578 | INFO | storage | 📦 Добавляю 7 постов в кеш
+2026-03-26 17:23:29,642 | INFO | storage | 📤 Беру пост из кеша
+2026-03-26 17:23:30,012 | INFO | poster | 📢 Пост отправлен
+2026-03-26 17:23:30,013 | INFO | scheduler | ✅ Пост опубликован
+2026-03-26 17:23:30,014 | INFO | apscheduler.executors.default | Job "auto_post (trigger: interval[0:00:30], next run at: 2026-03-26 17:23:54 +04)" executed successfully
+2026-03-26 17:23:54,917 | INFO | apscheduler.executors.default | Running job "auto_post (trigger: interval[0:00:30], next run at: 2026-03-26 17:24:24 +04)" (scheduled at 2026-03-26 17:23:54.910989+04:00)
+2026-03-26 17:23:54,918 | INFO | scheduler | ⏰ Запуск авто-поста
+2026-03-26 17:23:54,920 | INFO | storage | 📤 Беру пост из кеша
+2026-03-26 17:23:55,263 | INFO | poster | 📢 Пост отправлен
+2026-03-26 17:23:55,265 | INFO | scheduler | ✅ Пост опубликован
+2026-03-26 17:23:55,267 | INFO | apscheduler.executors.default | Job "auto_post (trigger: interval[0:00:30], next run at: 2026-03-26 17:24:24 +04)" executed successfully
+2026-03-26 17:24:13,455 | INFO | aiogram.dispatcher | Polling stopped
+2026-03-26 17:24:13,719 | INFO | aiogram.dispatcher | Polling stopped for bot @AutomobileTelegramBot id=8766508879 - 'Automobile_Telegram_Bot'
+2026-03-26 17:38:46,955 | INFO | __main__ | 🚀 Бот запускается...
+2026-03-26 17:38:46,971 | INFO | apscheduler.scheduler | Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-03-26 17:38:46,972 | INFO | apscheduler.scheduler | Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-03-26 17:38:46,973 | INFO | apscheduler.scheduler | Added job "auto_post" to job store "default"
+2026-03-26 17:38:46,973 | INFO | apscheduler.scheduler | Added job "find_new_rss_sources" to job store "default"
+2026-03-26 17:38:46,973 | INFO | apscheduler.scheduler | Scheduler started
+2026-03-26 17:38:46,974 | INFO | __main__ | ✅ Scheduler запущен
+2026-03-26 17:38:46,974 | INFO | aiogram.dispatcher | Start polling
+2026-03-26 17:38:47,318 | INFO | aiogram.dispatcher | Run polling for bot @AutomobileTelegramBot id=8766508879 - 'Automobile_Telegram_Bot'
+2026-03-26 17:38:54,340 | INFO | aiogram.dispatcher | Polling stopped
+2026-03-26 17:38:54,594 | INFO | aiogram.dispatcher | Polling stopped for bot @AutomobileTelegramBot id=8766508879 - 'Automobile_Telegram_Bot'
