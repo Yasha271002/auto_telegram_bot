@@ -31,9 +31,13 @@ def filter_trending(news_list):
 
     for news in news_list:
         if any(k.lower() in news["title"].lower() for k in KEYWORDS):
+            logger.info(f"🔥 Трендовых новостей: {len(filtered)}")
             filtered.append(news)
+        
+        if len(filtered) == 0:
+            logger.info(f"Трендовых новостей не найдено, беру обычные новости: {len(filtered)}")
+            filtered = news_list[:5]
 
-    logger.info(f"🔥 Трендовых новостей: {len(filtered)}")
     return filtered
 
 def extract_image(entry):
