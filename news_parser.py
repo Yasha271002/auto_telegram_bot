@@ -11,7 +11,11 @@ logger = logging.getLogger(__name__)
 
 KEYWORDS = [
     "Tesla", "BMW", "Mercedes", "electric", "EV",
-    "Lamborghini", "Ferrari", "Audi"
+    "Lamborghini", "Ferrari", "Audi", "Porsche", "Rivian", "Lucid",
+    "Nissan", "Chevrolet", "Ford", "Mustang", "F-150", "Cybertruck",
+    "autonomous", "self-driving", "autopilot", "FSD", "Full Self-Driving",
+    "Lada", "GAZ", "UAZ", "KAMAZ", "AvtoVAZ", "ZIL", "URAL", "Volga", "Zhiguli",
+    "Лада", "ГАЗ", "УАЗ", "КАМАЗ", "АвтоВАЗ", "ЗИЛ", "УРАЛ", "Волга", "Жигули"
 ]
 
 def load_rss():
