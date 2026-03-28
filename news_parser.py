@@ -23,6 +23,7 @@ def filter_trending(news_list):
     keywords = load_keywords()
 
     if not keywords:
+        logger.warning("⚠️ Нет ключевых слов для фильтрации")
         return news_list
     
     for news in news_list:
