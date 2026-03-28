@@ -39,7 +39,7 @@ async def start_scheduler(bot):
     scheduler.add_job(
         auto_post,
         'interval',
-        seconds=20, 
+        seconds=3600, 
         args=[bot],
         id="auto_post_job",
         replace_existing=True
