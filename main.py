@@ -1,4 +1,5 @@
 import asyncio
+from email.message import Message
 import logging
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
@@ -7,6 +8,7 @@ from poster import send_post
 from scheduler import start_scheduler
 from ai_generator import generate_news_posts
 from logger import setup_logger
+from utils.keywords import add_keyword, remove_keyword, load_keywords
 from rss_manager import add_rss, remove_rss, get_rss_list
 import logging
 
@@ -83,6 +85,52 @@ async def manual_post(message: types.Message):
     text = await generate_news_posts(topic)
     await send_post(bot, text)
     await message.answer("✅ Пост отправлен в канал!")
+
+@dp.message(Command("addkw"))
+async def add_kw(message: Message):
+    if message.from_user.id != ADMIN_ID:
+        return
+
+    text = message.text.replace("/addkw", "").strip()
+
+    if not text:
+        await message.answer("❌ Напиши слово: /addkw tesla")
+        return
+
+    if add_keyword(text):
+        await message.answer(f"✅ Добавлено: {text}")
+    else:
+        await message.answer("⚠️ Уже есть")
+
+@dp.message(Command("removekw"))
+async def remove_kw(message: Message):
+    if message.from_user.id != ADMIN_ID:
+        return
+
+    text = message.text.replace("/removekw", "").strip()
+
+    if not text:
+        await message.answer("❌ Напиши слово: /removekw tesla")
+        return
+
+    if remove_keyword(text):
+        await message.answer(f"🗑 Удалено: {text}")
+    else:
+        await message.answer("⚠️ Не найдено")
+
+@dp.message(Command("keywords"))
+async def list_kw(message: Message):
+    if message.from_user.id != ADMIN_ID:
+        return
+
+    keywords = load_keywords()
+
+    if not keywords:
+        await message.answer("📭 Список пуст")
+        return
+
+    text = "📊 Ключевые слова:\n\n" + "\n".join(f"• {k}" for k in keywords)
+    await message.answer(text)
 
 async def main():
     logger.info("🚀 Бот запускается...")

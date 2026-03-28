@@ -3,20 +3,12 @@ import logging
 import ssl
 import re
 
+from utils.keywords import load_keywords
 from deduplicator import is_duplicate
 from image_finder import get_image_from_url
 
 ssl._create_default_https_context = ssl._create_unverified_context
 logger = logging.getLogger(__name__)
-
-KEYWORDS = [
-    "Tesla", "BMW", "Mercedes", "electric", "EV",
-    "Lamborghini", "Ferrari", "Audi", "Porsche", "Rivian", "Lucid",
-    "Nissan", "Chevrolet", "Ford", "Mustang", "F-150", "Cybertruck",
-    "autonomous", "self-driving", "autopilot", "FSD", "Full Self-Driving",
-    "Lada", "GAZ", "UAZ", "KAMAZ", "AvtoVAZ", "ZIL", "URAL", "Volga", "Zhiguli",
-    "Лада", "ГАЗ", "УАЗ", "КАМАЗ", "АвтоВАЗ", "ЗИЛ", "УРАЛ", "Волга", "Жигули"
-]
 
 def load_rss():
     try:
@@ -28,15 +20,16 @@ def load_rss():
 
 def filter_trending(news_list):
     filtered = []
+    keywords = load_keywords()
 
+    if not keywords:
+        return news_list
+    
     for news in news_list:
-        if any(k.lower() in news["title"].lower() for k in KEYWORDS):
-            logger.info(f"🔥 Трендовых новостей: {len(filtered)}")
+        text = (news["title"] + " " + news.get("summary", "")).lower()
+
+        if any(k in text for k in keywords):
             filtered.append(news)
-        
-        if len(filtered) == 0:
-            logger.info(f"Трендовых новостей не найдено, беру обычные новости: {len(filtered)}")
-            filtered = news_list[:5]
 
     return filtered
 
