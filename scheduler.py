@@ -18,7 +18,7 @@ async def auto_post(bot: Bot):
             logger.info("❌ Нет постов — генерирую новую пачку")
             print("🧠 Генерирую пачку постов...")
             new_posts = await generate_news_posts()
-
+                
             if not new_posts:
                 logger.warning("⚠️ AI не дал посты — fallback")
             add_posts(new_posts)

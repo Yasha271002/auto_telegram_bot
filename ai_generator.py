@@ -1,6 +1,7 @@
 from openai import AsyncOpenAI
 from dotenv import load_dotenv
 from news_parser import get_latest_news, filter_trending
+from utils.image_utils import get_best_image
 from rss_manager import add_rss
 import logging
 import os
@@ -62,10 +63,10 @@ async def generate_news_posts():
 
     for item in news:
         text = await rewrite_news(item["title"], item["link"])
-
+        image = get_best_image(news)
         posts.append({
             "text": text,
-            "image": item.get("image")
+            "image": image
         })
 
     return posts
