@@ -3,6 +3,8 @@ from dotenv import load_dotenv
 from news_parser import get_latest_news, filter_trending
 from utils.image_utils import get_best_image
 from rss_manager import add_rss
+from deduplicator import is_duplicate
+
 import logging
 import os
 import re
@@ -62,8 +64,12 @@ async def generate_news_posts():
     posts = []
 
     for item in news:
+        if is_duplicate(item["title"] + item["link"]):
+            continue
+
         text = await rewrite_news(item["title"], item["link"])
-        image = get_best_image(news)
+        image = get_best_image(item)
+
         posts.append({
             "text": text,
             "image": image

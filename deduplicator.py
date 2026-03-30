@@ -7,12 +7,12 @@ def hash_text(text):
     return hashlib.md5(text.encode()).hexdigest()
 
 
-def is_duplicate(title):
-    h = hash_text(title)
+def is_duplicate(text):
+    h = hash_text(text.lower().strip())
 
     try:
         with open(FILE, "r") as f:
-            hashes = f.read().splitlines()
+            hashes = f.read().splitlines()[-1000:]
     except:
         hashes = []
 
