@@ -4,8 +4,10 @@ from ai_generator import generate_news_posts
 from poster import send_post
 from storage import get_post, add_posts
 from ai_generator import find_new_rss_sources
+from storage import get_post, add_posts, get_my_post
 
 import logging
+import random
 
 scheduler = AsyncIOScheduler()
 logger = logging.getLogger(__name__)
@@ -13,8 +15,9 @@ logger = logging.getLogger(__name__)
 async def auto_post(bot: Bot):
     try:
         logger.info("⏰ Запуск авто-поста")
-
-        post = get_post()
+        post = get_my_post()
+        if not post:
+            post = get_post()
 
         if not post:
             logger.info("❌ Нет постов — генерирую новую пачку")

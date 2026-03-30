@@ -1,6 +1,8 @@
-import asyncio
-from email.message import Message
 import logging
+import asyncio
+
+from email.message import Message
+from storage import add_my_post
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from config import BOT_TOKEN, ADMIN_ID
@@ -131,6 +133,21 @@ async def list_kw(message: Message):
 
     text = "📊 Ключевые слова:\n\n" + "\n".join(f"• {k}" for k in keywords)
     await message.answer(text)
+
+@dp.message(Command("addpost"))
+async def cmd_add_post(message: types.Message):
+    if message.from_user.id != ADMIN_ID:
+        return
+
+    text = message.text.replace("/addpost", "").strip()
+
+    if not text:
+        await message.answer("❌ Напиши текст поста")
+        return
+
+    add_my_post(text)
+
+    await message.answer("✅ Пост добавлен в очередь")
 
 async def main():
     logger.info("🚀 Бот запускается...")

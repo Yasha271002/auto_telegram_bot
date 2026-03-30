@@ -3,6 +3,8 @@ import os
 import logging
 
 FILE = "posts.json"
+MY_POSTS_FILE = "my_posts.txt"
+
 logger = logging.getLogger(__name__)
 
 def load_posts():
@@ -31,3 +33,28 @@ def get_post():
     post = posts.pop(0)
     save_posts(posts)
     return post
+
+def add_my_post(text):
+    with open(MY_POSTS_FILE, "a", encoding="utf-8") as f:
+        f.write(text.replace("\n", " ") + "\n")
+
+
+def get_my_post():
+    try:
+        with open(MY_POSTS_FILE, "r", encoding="utf-8") as f:
+            posts = f.readlines()
+    except:
+        return None
+
+    if not posts:
+        return None
+
+    post = posts[0].strip()
+
+    with open(MY_POSTS_FILE, "w", encoding="utf-8") as f:
+        f.writelines(posts[1:])
+
+    return {
+        "text": post,
+        "image": None
+    }
