@@ -37,54 +37,6 @@ kb = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
-@dp.message(Command("start"))
-async def start(message: types.Message):
-    await message.answer("Выбери действие 👇", reply_markup=kb)
-
-@dp.message(lambda m: m.text == "🚗 Подобрать авто")
-async def podbor_btn(message: types.Message):
-    await message.answer("Напиши бюджет и требования\n\nНапример: до 1 млн седан")
-
-
-@dp.message(lambda m: m.text == "⚖️ Сравнить авто")
-async def compare_btn(message: types.Message):
-    await message.answer("Напиши: Camry vs Accord")
-
-
-@dp.message(lambda m: m.text == "🧠 Стоит ли брать")
-async def buy_btn(message: types.Message):
-    await message.answer("Напиши модель авто\n\nНапример: BMW 3 2018")
-
-@dp.message()
-async def ai_handler(message: types.Message):
-    if message.from_user.id == ADMIN_ID:
-        return
-    if message.text.startswith("/"):
-        return
-    
-    text = message.text
-
-    if not await smart_filter(text):
-        await message.answer(
-            "🚗 Я разбираюсь только в авто.\n\n"
-            "Попробуй:\n"
-            "• Подбери авто до 1 млн\n"
-            "• Camry vs Accord\n"
-            "• Стоит ли брать BMW"
-        )
-        return
-
-    await message.answer("🤖 Думаю...")
-
-    result = await route(text)
-
-    result += "\n\n👉 Подпишись на канал с новостями"
-
-    await message.answer(result)
-
-    if len(result) > 200 and random.random() < 0.3:
-        save_user_post(text, result)
-
 @dp.message(Command("posts"))
 async def cmd_posts(message: types.Message):
     if message.from_user.id != ADMIN_ID:
@@ -364,6 +316,57 @@ async def cmd_add_post(message: types.Message):
     add_my_post(text)
 
     await message.answer("✅ Пост добавлен в очередь")
+
+
+@dp.message(Command("start"))
+async def start(message: types.Message):
+    await message.answer("Выбери действие 👇", reply_markup=kb)
+
+@dp.message(lambda m: m.text == "🚗 Подобрать авто")
+async def podbor_btn(message: types.Message):
+    await message.answer("Напиши бюджет и требования\n\nНапример: до 1 млн седан")
+
+
+@dp.message(lambda m: m.text == "⚖️ Сравнить авто")
+async def compare_btn(message: types.Message):
+    await message.answer("Напиши: Camry vs Accord")
+
+
+@dp.message(lambda m: m.text == "🧠 Стоит ли брать")
+async def buy_btn(message: types.Message):
+    await message.answer("Напиши модель авто\n\nНапример: BMW 3 2018")
+
+
+
+@dp.message()
+async def ai_handler(message: types.Message):
+    if message.text.startswith("/"):
+        return
+    if message.from_user.id == ADMIN_ID:
+        return
+    
+    text = message.text
+
+    if not await smart_filter(text):
+        await message.answer(
+            "🚗 Я разбираюсь только в авто.\n\n"
+            "Попробуй:\n"
+            "• Подбери авто до 1 млн\n"
+            "• Camry vs Accord\n"
+            "• Стоит ли брать BMW"
+        )
+        return
+
+    await message.answer("🤖 Думаю...")
+
+    result = await route(text)
+
+    result += "\n\n👉 Подпишись на канал с новостями"
+
+    await message.answer(result)
+
+    if len(result) > 200 and random.random() < 0.3:
+        save_user_post(text, result)
 
 async def main():
     logger.info("🚀 Бот запускается...")
