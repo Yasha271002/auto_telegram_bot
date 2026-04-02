@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"),
                      base_url="https://api.aitunnel.ru/v1")
 
-MODEL = "deepseek-chat"
+MODEL = os.getenv("MODEL", "gpt-4o-mini")
 
 async def rewrite_news(title: str, link: str):
     prompt = f"""

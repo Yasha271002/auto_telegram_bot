@@ -58,3 +58,35 @@ def get_my_post():
         "text": post,
         "image": None
     }
+
+def get_all_posts():
+    return load_posts()
+
+
+def get_posts_count():
+    return len(load_posts())
+
+
+def delete_post_by_index(index):
+    posts = load_posts()
+
+    if index < 0 or index >= len(posts):
+        return False
+
+    deleted = posts.pop(index)
+    save_posts(posts)
+
+    return deleted
+
+
+def get_posts_titles(limit=20):
+    posts = load_posts()
+
+    result = []
+
+    for i, post in enumerate(posts[:limit]):
+        text = post.get("text", "")
+        title = text[:60].replace("\n", " ")
+        result.append((i, title))
+
+    return result
