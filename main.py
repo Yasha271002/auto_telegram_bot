@@ -59,7 +59,9 @@ async def buy_btn(message: types.Message):
 async def ai_handler(message: types.Message):
     if message.from_user.id == ADMIN_ID:
         return
-
+    if message.text.startswith("/"):
+        return
+    
     text = message.text
 
     if not await smart_filter(text):
