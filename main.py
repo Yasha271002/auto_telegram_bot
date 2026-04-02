@@ -5,7 +5,7 @@ import settings
 from random import random
 from user_content import save_user_post
 from email.message import Message
-from storage import get_all_posts, get_posts_count, delete_post_by_index, get_posts_titlesadd_my_post, get_post, get_my_post
+from storage import get_all_posts, get_posts_count, delete_post_by_index, get_posts_titles, add_my_post, get_post, get_my_post
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
