@@ -1,0 +1,1 @@
+RSS_AUTO_SEARCH = True

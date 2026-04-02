@@ -1,8 +1,9 @@
 import logging
 import asyncio
+import settings
 
 from email.message import Message
-from storage import add_my_post
+from storage import add_my_post,    get_post, get_my_post
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from config import BOT_TOKEN, ADMIN_ID
@@ -21,6 +22,41 @@ logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
+
+@dp.message(Command("startrss"))
+async def start_rss(message: types.Message):
+    if message.from_user.id != ADMIN_ID:
+        return
+
+    settings.RSS_AUTO_SEARCH = True
+    await message.answer("✅ Автопоиск RSS включен")
+
+@dp.message(Command("stoprss"))
+async def stop_rss(message: types.Message):
+    if message.from_user.id != ADMIN_ID:
+        return
+
+    settings.RSS_AUTO_SEARCH = False
+    await message.answer("⛔ Автопоиск RSS остановлен")
+
+@dp.message(Command("postnow"))
+async def post_now(message: types.Message):
+    if message.from_user.id != ADMIN_ID:
+        return
+
+    # сначала твои посты
+    post = get_my_post()
+
+    if not post:
+        post = get_post()
+
+    if not post:
+        await message.answer("❌ Нет постов в кэше")
+        return
+
+    await send_post(bot, post["text"], post.get("image"))
+
+    await message.answer("🚀 Пост опубликован вручную")
 
 @dp.message(Command("listrss"))
 async def cmd_list_rss(message: types.Message):

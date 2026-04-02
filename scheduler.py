@@ -4,6 +4,7 @@ from ai_generator import generate_news_posts
 from poster import send_post
 from storage import get_post, add_posts
 from ai_generator import find_new_rss_sources
+from settings import RSS_AUTO_SEARCH
 from storage import get_post, add_posts, get_my_post
 
 import logging
@@ -57,9 +58,10 @@ async def start_scheduler(bot):
         replace_existing=True
     )
 
-    scheduler.add_job(
-        find_new_rss_sources,
-        trigger="interval",
-        hours=24
+    if RSS_AUTO_SEARCH:
+        scheduler.add_job(
+            find_new_rss_sources,
+            trigger="interval",
+            hours=24
     )
     scheduler.start()
